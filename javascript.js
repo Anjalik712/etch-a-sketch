@@ -11,19 +11,19 @@ function changeBackground() {
 }
 
 //To draw grid
-function drawGrid(size=16) {
+function drawGrid(size = 16) {
   const div = document.querySelector(".container");
-  div.innerHTML="";
+  div.innerHTML = "";
   for (let i = 0; i < size; i++) {
     let boxRow = document.createElement("div");
     boxRow.classList.add("boxRow");
-    boxRow.style.width=`${400/size}px`;
-    boxRow.style.height=`${400/size}px`;
+    boxRow.style.width = `${400 / size}px`;
+    boxRow.style.height = `${400 / size}px`;
     for (let j = 0; j < size; j++) {
       let boxColumn = document.createElement("div");
       boxColumn.classList.add("boxColumn");
-      boxColumn.style.width=`${400/size}px`;
-      boxColumn.style.height=`${400/size}px`;
+      boxColumn.style.width = `${400 / size}px`;
+      boxColumn.style.height = `${400 / size}px`;
       boxRow.appendChild(boxColumn);
     }
     div.appendChild(boxRow);
@@ -34,16 +34,27 @@ function drawGrid(size=16) {
   });
 }
 
+function resetBackground(){
+  let boxes = document.querySelectorAll(".boxColumn");
+  boxes.forEach((element)=>{
+    element.style.background="rgb(246, 229, 246)";
+  })
+}
 
 drawGrid();
-const button=document.querySelector("#sizeButton");
+const button = document.querySelector("#sizeButton");
 button.addEventListener("click", () => {
-  
   let givenSize = prompt("Enter size of your grid: ");
-  if (givenSize > 100) {
+  if (+givenSize > 100) {
     alert("Enter a size less than 100!");
-  } else {
-    drawGrid(givenSize);
+  } else if(givenSize===""){
+    alert("Invalid input");
+  }
+  else {
+    drawGrid(+givenSize);
   }
 });
+
+const resetButton = document.querySelector("#resetButton");
+resetButton.addEventListener("click",resetBackground);
 
