@@ -17,9 +17,13 @@ function drawGrid(size=16) {
   for (let i = 0; i < size; i++) {
     let boxRow = document.createElement("div");
     boxRow.classList.add("boxRow");
+    boxRow.style.width=`${400/size}px`;
+    boxRow.style.height=`${400/size}px`;
     for (let j = 0; j < size; j++) {
       let boxColumn = document.createElement("div");
       boxColumn.classList.add("boxColumn");
+      boxColumn.style.width=`${400/size}px`;
+      boxColumn.style.height=`${400/size}px`;
       boxRow.appendChild(boxColumn);
     }
     div.appendChild(boxRow);

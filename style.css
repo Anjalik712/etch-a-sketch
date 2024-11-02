@@ -6,19 +6,17 @@
 }
 .container{
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
+    width:400px;
+    height: 400px;
+    margin: auto;
+    border: 1px solid black;
 }
 .boxRow{
     display: flex;
     flex-wrap: wrap;
-    height: 25px;
-    width: 25px;
-}
-.boxColumn{
-    border: 1px solid black;
-    height: 25px;
-    width: 25px;
+    margin: 0;
 }
 .sizeBtnContainer{
     display: flex;
