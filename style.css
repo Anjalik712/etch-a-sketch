@@ -8,7 +8,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 50px;
 }
 .boxRow{
     display: flex;
@@ -20,4 +19,15 @@
     border: 1px solid black;
     height: 25px;
     width: 25px;
+}
+.sizeBtnContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 50px;
+}
+h1{
+    text-align: center;
+    color: purple;
+    font-size:80px;
 }

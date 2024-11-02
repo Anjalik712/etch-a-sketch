@@ -1,5 +1,19 @@
-const div = document.querySelector(".container");
-function drawGrid(size) {
+// Generate random color
+function generateRandomColor() {
+  let rcolor = Math.round(Math.random() * 256);
+  let gcolor = Math.round(Math.random() * 256);
+  let bcolor = Math.round(Math.random() * 256);
+  return `rgb(${rcolor},${gcolor},${bcolor})`;
+}
+
+function changeBackground() {
+  this.style.background = generateRandomColor();
+}
+
+//To draw grid
+function drawGrid(size=16) {
+  const div = document.querySelector(".container");
+  div.innerHTML="";
   for (let i = 0; i < size; i++) {
     let boxRow = document.createElement("div");
     boxRow.classList.add("boxRow");
@@ -15,20 +29,12 @@ function drawGrid(size) {
     element.addEventListener("mouseenter", changeBackground);
   });
 }
-function generateRandomColor() {
-  let color = Math.random() * 256;
-  return color;
-}
 
-function changeBackground() {
-  this.style.background = `rgb(${generateRandomColor()},${generateRandomColor()},${generateRandomColor()})`;
-}
 
-drawGrid(16);
-let button = document.createElement("button");
-button.classList.add("sizebutton");
-button.textContent = "Enter size";
+drawGrid();
+const button=document.querySelector("#sizeButton");
 button.addEventListener("click", () => {
+  
   let givenSize = prompt("Enter size of your grid: ");
   if (givenSize > 100) {
     alert("Enter a size less than 100!");
@@ -36,4 +42,4 @@ button.addEventListener("click", () => {
     drawGrid(givenSize);
   }
 });
-div.appendChild(button);
+
